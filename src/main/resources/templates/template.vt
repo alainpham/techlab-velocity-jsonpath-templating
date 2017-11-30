@@ -1,0 +1,15 @@
+#set( $template = ${camelContext.getApplicationContext().getBean("template")} )
+#set($jsonPathWrapper = ${camelContext.getApplicationContext().getBean("jsonPathWrapper")} )
+
+#macro(jpath $expression)
+	${jsonPathWrapper.jsonpath($expression,${body})}
+#end
+
+
+{
+	#foreach( $key in ${camelContext.getApplicationContext().getBeanDefinitionNames()} )
+		"$key" :  "${camelContext.getApplicationContext().getBean($key).class}",
+	#end
+		"body" : #jpath("$.list"),
+		"body2" : #jpath("$.list[0]")
+}

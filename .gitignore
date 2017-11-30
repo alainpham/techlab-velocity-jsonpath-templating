@@ -1,0 +1,12 @@
+**/target/
+**/.project
+**/.settings
+**/.classpath
+bin
+pom.xml.versionsBackup
+h2db
+eventDB.mv.db
+ispn_index
+Infinispan-LevelDBStore
+**/*.jar
+**/*.log
